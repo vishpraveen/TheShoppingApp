@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import com.vishpraveen.theshoppingapp.ui.theme.TheShoppingAppTheme
 import com.vishpraveen.theshoppingapp.ui.theme.spacing
 
@@ -39,8 +41,20 @@ fun Greeting(name: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun DefaultPreview(
+    @PreviewParameter(SampleGreetingProvider::class) osName: String
+) {
     TheShoppingAppTheme {
-        Greeting("Android")
+        Greeting(osName)
     }
+}
+
+class SampleGreetingProvider: PreviewParameterProvider<String> {
+    override val values: Sequence<String> = sequenceOf(
+            "Android",
+            "iOS",
+            "Mac",
+            "Linux",
+            "Windows",
+        )
 }
