@@ -15,21 +15,15 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import com.vishpraveen.theshoppingapp.ui.theme.TheShoppingAppTheme
 import com.vishpraveen.theshoppingapp.ui.theme.spacing
+import com.vishpraveen.theshoppingapp.usersscreen.UsersScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            TheShoppingAppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize()
-                        .padding(MaterialTheme.spacing.extraSmall),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+            UsersScreen()
         }
     }
 }
